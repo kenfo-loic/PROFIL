@@ -47,11 +47,26 @@
 }
 
 @media (max-width: 768px) {
+  .footer {
+    padding: 2rem 0;
+  }
   .footer-container {
     flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  .footer-left {
+    align-items: center;
     text-align: center;
   }
   .footer-right {
     align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .footer-socials {
+    justify-content: center !important;
   }
 }

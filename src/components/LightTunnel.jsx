@@ -55,7 +55,7 @@ const LightTunnel = ({
 
       void main() {
         // EXACT mathematical center of the screen
-        vec2 st = (gl_FragCoord.xy - 0.5 * uResolution.xy) / min(uResolution.x, uResolution.y);
+        vec2 st = (gl_FragCoord.xy - 0.5 * uResolution.xy) / max(uResolution.x, uResolution.y);
 
         float r = length(st);
         float a = atan(st.y, st.x);
