@@ -6,7 +6,7 @@ const ExperienceSection = ({ experience = [] }) => {
     <section id="experience" className="experience-section">
       <div className="container">
         <div className="section-header text-center">
-          <span className="section-tag">🚀 Parcours Professionnel</span>
+          <span className="section-tag">Parcours Professionnel</span>
           <h2 className="section-title">Expérience & Carrière</h2>
           <p className="section-subtitle">
             Mon évolution dans l'écosystème tech et mes rôles clés dans le développement web.

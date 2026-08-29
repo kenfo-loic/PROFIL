@@ -93,29 +93,6 @@ const ProjectsSection = ({ projects = [] }) => {
                     </div>
                   </div>
 
-                  <div className="project-card-actions">
-                    {activeProject.liveUrl && (
-                      <a 
-                        href={activeProject.liveUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn btn-primary"
-                      >
-                        <span>Voir la Démo</span>
-                        <span className="btn-icon">↗</span>
-                      </a>
-                    )}
-                    {activeProject.githubUrl && (
-                      <a 
-                        href={activeProject.githubUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn btn-secondary"
-                      >
-                        <span>Code Source</span>
-                      </a>
-                    )}
-                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
