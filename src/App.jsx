@@ -6,7 +6,7 @@ import SkillsSection from './components/SkillsSection';
 import ExperienceSection from './components/ExperienceSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import LightTunnel from './components/LightTunnel';
+import CyberBackground from './components/CyberBackground';
 
 function App() {
   const [portfolioData, setPortfolioData] = useState(null);
@@ -176,14 +176,7 @@ function App() {
 
   return (
     <div className="portfolio-app">
-      <div className="background-glitch-wrapper">
-        <LightTunnel
-          speed={0.9}
-          density={1.4}
-          radius={0.45}
-          colors={['#6366f1', '#a855f7', '#22d3ee', '#61dca3']}
-        />
-      </div>
+      <CyberBackground />
       <Navbar activeSection={activeSection} serverStatus={serverOnline} />
       <main>
         <Hero profile={portfolioData?.profile} />

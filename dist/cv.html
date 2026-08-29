@@ -1465,46 +1465,15 @@ Localisation: Cameroun / Yaoundé`;
       });
     }
 
-    // 1-Click Direct PDF Download (Mobile & Desktop)
-    async function downloadPDF() {
+    // 1-Click High-Quality Vector PDF Download
+    function downloadPDF() {
       const toast = document.getElementById('copy-toast');
-      if (toast) {
-        toast.textContent = "Téléchargement du PDF en cours...";
-        toast.classList.add('show');
-      }
-
-      const cvElement = document.querySelector('.cv-container') || document.body;
-      
-      const opt = {
-        margin: [4, 4, 4, 4],
-        filename: 'CV_Kenfo_Tsentezo_Loic_Levis.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { 
-          scale: 2, 
-          useCORS: true, 
-          logging: false,
-          scrollY: 0,
-          scrollX: 0
-        },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-
-      try {
-        if (typeof html2pdf !== 'undefined') {
-          await html2pdf().set(opt).from(cvElement).save();
-          if (toast) {
-            toast.textContent = "PDF téléchargé avec succès !";
-            setTimeout(() => toast.classList.remove('show'), 2000);
-          }
-        } else {
-          window.print();
-          if (toast) toast.classList.remove('show');
-        }
-      } catch (err) {
-        console.error("Erreur téléchargement PDF:", err);
+      toast.textContent = "Génération du PDF vectoriel...";
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
         window.print();
-        if (toast) toast.classList.remove('show');
-      }
+      }, 400);
     }
 
     // Embedded Profile Photo Base64 for guaranteed offline rendering in Word
