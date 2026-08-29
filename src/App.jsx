@@ -6,7 +6,7 @@ import SkillsSection from './components/SkillsSection';
 import ExperienceSection from './components/ExperienceSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import CyberBackground from './components/CyberBackground';
+import BackgroundPixelSwap from './components/BackgroundPixelSwap';
 
 function App() {
   const [portfolioData, setPortfolioData] = useState(null);
@@ -176,7 +176,7 @@ function App() {
 
   return (
     <div className="portfolio-app">
-      <CyberBackground />
+      <BackgroundPixelSwap />
       <Navbar activeSection={activeSection} serverStatus={serverOnline} />
       <main>
         <Hero profile={portfolioData?.profile} />
