@@ -12,7 +12,7 @@ const Hero = ({ profile }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="hero-identity-box" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <div className="hero-identity-box">
             <div className="react-photo-frame">
               <div className="photo-glow-pulse"></div>
               <div className="photo-glow-pulse-2"></div>
@@ -21,22 +21,20 @@ const Hero = ({ profile }) => {
                 <img src="/profile.jpg" alt={profile?.name || "Kenfo Tsentezo Loic Levis"} />
               </div>
             </div>
-            <div>
-              <div className="hero-badge" style={{ marginBottom: '0.4rem' }}>
+            <div className="hero-identity-info">
+              <div className="hero-badge">
                 <span className="badge-pulse"></span>
                 <span>Full-Stack • Maintenancier • Designer</span>
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '700', color: '#fff', margin: 0 }}>
+              <h3 className="hero-name-heading">
                 <DecryptedText 
                   text={profile?.name || "KENFO TSENTEZO LOIC LEVIS"} 
-                  repeatInterval={5000} 
                   speed={45} 
                 />
               </h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-dim)', margin: '0.2rem 0 0 0' }}>
+              <p className="hero-subrole-heading">
                 <DecryptedText 
                   text="Développeur Full-Stack • Maintenancier & Designer" 
-                  repeatInterval={5000} 
                   speed={40} 
                 />
               </p>

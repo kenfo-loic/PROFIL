@@ -29,9 +29,6 @@ const ProjectsSection = ({ projects = [] }) => {
         <div className="section-header text-center">
           <span className="section-tag">Portfolio Dynamique</span>
           <h2 className="section-title">Mes Réalisations & Projets</h2>
-          <p className="section-subtitle">
-            Utilisez les <kbd className="key-hint">↑</kbd> <kbd className="key-hint">↓</kbd> ou <kbd className="key-hint">Tab</kbd> / <kbd className="key-hint">Entrée</kbd> pour naviguer dans la liste interactive animée.
-          </p>
         </div>
 
         <div className="projects-grid">
