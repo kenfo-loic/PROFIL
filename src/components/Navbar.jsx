@@ -32,11 +32,6 @@ const Navbar = ({ activeSection, serverStatus }) => {
           <span className="logo-text">Kenfo<span className="gradient-text">.Levis</span></span>
         </a>
 
-        {/* Server Status Indicator */}
-        <div className="status-pill" title={serverStatus ? "API Backend Connectée" : "API Backend hors ligne"}>
-          <span className={`status-dot ${serverStatus ? 'online' : 'offline'}`}></span>
-          <span className="status-text">{serverStatus ? 'API Connectée' : 'Mode Hors-ligne'}</span>
-        </div>
 
         <nav className={`navbar-nav ${mobileMenuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
