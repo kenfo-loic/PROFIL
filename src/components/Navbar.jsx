@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { Sun, Moon } from 'lucide-react';
 import './Navbar.css';
 
-const Navbar = ({ activeSection, serverStatus }) => {
+const Navbar = ({ activeSection, serverStatus, theme, toggleTheme }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,6 +23,8 @@ const Navbar = ({ activeSection, serverStatus }) => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const isLight = theme === 'light';
+
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
@@ -31,7 +34,6 @@ const Navbar = ({ activeSection, serverStatus }) => {
           </span>
           <span className="logo-text">Kenfo<span className="gradient-text">.Levis</span></span>
         </a>
-
 
         <nav className={`navbar-nav ${mobileMenuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
@@ -44,19 +46,38 @@ const Navbar = ({ activeSection, serverStatus }) => {
               {link.name}
             </a>
           ))}
-          <a href="#contact" className="btn btn-primary nav-cta">Me Contacter</a>
+          <a href="#contact" className="btn btn-primary nav-cta" onClick={() => setMobileMenuOpen(false)}>
+            Me Contacter
+          </a>
         </nav>
 
-        <button 
-          className="mobile-toggle" 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          <span className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}></span>
-        </button>
+        <div className="navbar-actions">
+          <button
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={isLight ? "Activer le mode sombre" : "Activer le mode clair"}
+            title={isLight ? "Mode Sombre" : "Mode Clair"}
+          >
+            {isLight ? (
+              <Moon className="theme-icon moon-icon" size={20} />
+            ) : (
+              <Sun className="theme-icon sun-icon" size={20} />
+            )}
+            <span className="theme-toggle-text">{isLight ? 'Sombre' : 'Clair'}</span>
+          </button>
+
+          <button 
+            className="mobile-toggle" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            <span className={`hamburger ${mobileMenuOpen ? 'active' : ''}`}></span>
+          </button>
+        </div>
       </div>
     </header>
   );
 };
 
 export default Navbar;
+

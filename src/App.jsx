@@ -12,6 +12,32 @@ function App() {
   const [portfolioData, setPortfolioData] = useState(null);
   const [serverOnline, setServerOnline] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  });
+
+  // Apply theme to document root
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  // Sync theme across tabs and pages (like cv.html)
+  useEffect(() => {
+    const handleStorageChange = (e) => {
+      if (e.key === 'theme' && e.newValue) {
+        setTheme(e.newValue);
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   // Fetch portfolio data from Express backend API
   useEffect(() => {
@@ -176,8 +202,8 @@ function App() {
 
   return (
     <div className="portfolio-app">
-      <BackgroundPixelSwap />
-      <Navbar activeSection={activeSection} serverStatus={serverOnline} />
+      <BackgroundPixelSwap theme={theme} />
+      <Navbar activeSection={activeSection} serverStatus={serverOnline} theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero profile={portfolioData?.profile} />
         <ProjectsSection projects={portfolioData?.projects || []} />

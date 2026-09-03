@@ -1,7 +1,9 @@
 .footer {
   padding: 3rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(9, 13, 22, 0.95);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .footer-container {
@@ -43,7 +45,7 @@
 }
 
 .footer-links a:hover {
-  color: #ffffff;
+  color: var(--accent-primary);
 }
 
 @media (max-width: 768px) {
@@ -70,3 +72,4 @@
     justify-content: center !important;
   }
 }
+

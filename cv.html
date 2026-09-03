@@ -1428,20 +1428,34 @@
   <div id="copy-toast">Coordonnées copiées dans le presse-papier !</div>
 
   <script>
-    // Theme Switcher
-    function toggleTheme() {
+    // Theme Switcher with localStorage sync
+    function applyTheme(theme) {
       const html = document.documentElement;
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      html.setAttribute('data-theme', newTheme);
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
       
       const themeText = document.getElementById('theme-text');
-      if (newTheme === 'light') {
-        themeText.textContent = 'Mode Sombre';
-      } else {
-        themeText.textContent = 'Mode Clair';
+      if (themeText) {
+        themeText.textContent = theme === 'light' ? 'Mode Sombre' : 'Mode Clair';
       }
     }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme') || 'dark';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      applyTheme(newTheme);
+    }
+
+    // Initialize theme from localStorage on load
+    (function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        applyTheme('light');
+      }
+    })();
 
     // Copy Contact to Clipboard
     function copyContact() {

@@ -43,12 +43,12 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.1rem;
-  color: #f8fafc;
+  color: var(--text-heading);
   padding: 0.5rem 0.25rem;
 }
 
 .list-title-icon {
-  color: #818cf8;
+  color: var(--accent-primary);
 }
 
 .custom-portfolio-list {
@@ -67,9 +67,16 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  background: rgba(18, 24, 38, 0.85);
-  border: 1px solid rgba(129, 140, 248, 0.25);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(99, 102, 241, 0.1);
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(99, 102, 241, 0.08);
+  border-radius: 20px;
+}
+
+[data-theme="light"] .project-card {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .project-badge-bar {
@@ -81,7 +88,7 @@
 .project-category {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #818cf8;
+  color: var(--accent-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -92,7 +99,7 @@
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   background: rgba(168, 85, 247, 0.15);
-  color: #c084fc;
+  color: var(--accent-secondary);
   border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
@@ -118,7 +125,7 @@
   font-family: var(--font-heading);
   font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-heading);
 }
 
 .project-description-full {
@@ -133,10 +140,11 @@
   gap: 0.6rem;
   padding: 0.75rem 1rem;
   border-radius: 10px;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  color: #34d399;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: var(--accent-emerald);
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .project-tech-stack {
@@ -162,9 +170,9 @@
   font-weight: 600;
   padding: 0.3rem 0.75rem;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--tag-color);
 }
 
 .project-card-actions {
