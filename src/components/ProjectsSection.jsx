@@ -76,11 +76,6 @@ const ProjectsSection = ({ projects = [] }) => {
                     {activeProject.description}
                   </p>
 
-                  <div className="project-metrics">
-                    <span className="metric-icon">✓</span>
-                    <span>Impact : <strong>{activeProject.metrics}</strong></span>
-                  </div>
-
                   <div className="project-tech-stack">
                     <span className="tech-label">Technologies utilisées :</span>
                     <div className="tech-tags">

@@ -14,18 +14,11 @@ const Hero = ({ profile }) => {
         >
           <div className="hero-identity-box">
             <div className="react-photo-frame">
-              <div className="photo-glow-pulse"></div>
-              <div className="photo-glow-pulse-2"></div>
-              <div className="photo-orbit"></div>
               <div className="photo-placeholder-react">
                 <img src="/profile.jpg" alt={profile?.name || "Kenfo Tsentezo Loic Levis"} />
               </div>
             </div>
             <div className="hero-identity-info">
-              <div className="hero-badge">
-                <span className="badge-pulse"></span>
-                <span>Full-Stack • Maintenancier • Designer</span>
-              </div>
               <h3 className="hero-name-heading">
                 <DecryptedText 
                   text={profile?.name || "KENFO TSENTEZO LOIC LEVIS"} 
